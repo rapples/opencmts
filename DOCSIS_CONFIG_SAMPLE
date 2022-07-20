@@ -1,0 +1,104 @@
+---
+MaxCPE: '3'
+MaxClassifiers: '20'
+NetworkAccess: '1'
+DocsisTwoEnable: 1
+DsPacketClass:
+- ActivationState: '1'
+  ClassifierRef: '4'
+  IpPacketClassifier:
+    DstPortEnd: '2427'
+    DstPortStart: '2427'
+    IpDstAddr: 0.0.0.0
+    IpDstMask: 0.0.0.0
+    IpProto: '17'
+    IpSrcAddr: 0.0.0.0
+    IpSrcMask: 0.0.0.0
+  RulePriority: '1'
+  ServiceFlowRef: '4'
+- ActivationState: '1'
+  ClassifierRef: '5'
+  IpPacketClassifier:
+    IpDstAddr: 10.160.0.0
+    IpDstMask: 255.254.0.0
+    IpProto: '17'
+    IpSrcAddr: 0.0.0.0
+    IpSrcMask: 0.0.0.0
+  RulePriority: '32'
+  ServiceFlowRef: '6'
+DsServiceFlow:
+- DsServiceFlowRef: '3'
+  MaxRateSustained: '10240000'
+  QosParamSetType: '7'
+  TrafficPriority: '3'
+- DsServiceFlowRef: '4'
+  MaxRateSustained: '8000000'
+  QosParamSetType: '7'
+  TrafficPriority: '4'
+- DsServiceFlowRef: '6'
+  MaxRateSustained: '5000000'
+  QosParamSetType: '7'
+  TrafficPriority: '5'
+SnmpMibObject:
+- oid: 1.3.6.1.4.1.1.77.1.6.1.1.6.2
+  INTEGER: 1
+- oid: 1.3.6.1.4.1.1429.77.1.6.1.1.6.2
+  STRING: bootfile.bin
+UsPacketClass:
+- ActivationState: '1'
+  ClassifierRef: '1'
+  IpPacketClassifier:
+    IpDstAddr: 0.0.0.0
+    IpDstMask: 0.0.0.0
+    IpProto: '17'
+    IpSrcAddr: 0.0.0.0
+    IpSrcMask: 0.0.0.0
+    SrcPortEnd: '2727'
+    SrcPortStart: '2727'
+  RulePriority: '64'
+  ServiceFlowRef: '2'
+- ActivationState: '1'
+  ClassifierRef: '2'
+  LLCPacketClassifier:
+    EtherType: 0x030f16
+  RulePriority: '3'
+  ServiceFlowRef: '2'
+- ActivationState: '1'
+  ClassifierRef: '3'
+  IpPacketClassifier:
+    IpDstAddr: 0.0.0.0
+    IpDstMask: 0.0.0.0
+    IpProto: '17'
+    IpSrcAddr: 10.160.0.0
+    IpSrcMask: 255.254.0.0
+  RulePriority: '32'
+  ServiceFlowRef: '5'
+UsServiceFlow:
+- IpTosOverwrite: 0x0017
+  MaxRateSustained: '1024000'
+  QosParamSetType: '7'
+  SchedulingType: '2'
+  TrafficPriority: '3'
+  UsServiceFlowRef: '1'
+- MaxRateSustained: '512000'
+  QosParamSetType: '7'
+  SchedulingType: '2'
+  TrafficPriority: '4'
+  UsServiceFlowRef: '2'
+- MaxRateSustained: '512000'
+  QosParamSetType: '7'
+  SchedulingType: '2'
+  TrafficPriority: '5'
+  UsServiceFlowRef: '5'
+- MaxConcatenatedBurst: 3044
+  MaxRateSustained: 128000
+  MaxTrafficBurst: 3044
+  QosParamSetType: 7
+  SchedulingType: 2
+  TrafficPriority: 3
+  UsServiceFlowRef: 2
+  UsVendorSpecific:
+    id: 0x00100a
+    options:
+    - 4
+    - 0x0100a3123a8f4a50
