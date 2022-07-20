@@ -1,0 +1,12 @@
+Bandwidth allocation controlled by CMTS
+• A stream of minislots in the upstream
+• Dynamic mix of contention- and reservation-based upstream transmit opportunities
+• Bandwidth efficiency through support of variable-length packets
+• Extensions provided for future support of ATM or other Data PDU
+• Quality-of-service including:
+• Support for Bandwidth and Latency Guarantees
+• Packet Classification
+• Dynamic Service Establishment
+• Extensions provided for security at the data link layer
+• Support for a wide range of data rates
+• Logical combining of multiple channels for increased throughput (channel bonding)
