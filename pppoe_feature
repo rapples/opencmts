@@ -1,0 +1,22 @@
+The Point-to-Point Protocol over Ethernet (PPPoE) feature supports PPPoE on cable interfaces, allowing service providers to extend their existing 
+PPP dial-up provisioning systems to users on cable networks. When PPPoE Termination is enabled, the OpenCMTS encapsulates PPP packets in Ethernet 
+frames within PPPoE sessions.
+When the OpenCMTS receives PPPoE traffic from PPPoE sessions that are initiated by the user’s PC, the OpenCMTS either terminates the PPPoE 
+sessions on the cable interface or transmits the PPPoE traffic through a secure tunnel connection, depending on the OpenCMTS configuration.
+The following are the most typical configurations:
+	•	Internet access—For residential customers and other users who want only basic Internet access, traffic is sent out on the WAN interface 
+  as standard IP packets. The service provider can use the same provisioning systems as they use for their dial-up users and other broadband users. 
+  The PPPoE session exists only between the cable modem and OpenCMTS, simplifying network management and configuration.
+	•	Secure corporate access—For businesses or telecommuters, traffic is forwarded over a Layer 2 point-to-point Tunneling Protocol (L2TP) tunnel 
+  to a L2TP network server (LNS) to create secure corporate intranet access. Cable modem users can access company resources as if they were 
+  directly connected to the corporate network, without compromising network security. 
+	•	When using the L2TP tunnel configuration, the OpenCMTS acts as the L2TP Access Concentrator (LAC), or Network Access Server (NAS). When the 
+  cable modem, acting as a bridge, receives its PPPoE session traffic, it forwards the traffic on to the hosts and other customer premises equipment 
+  (CPE) devices that are connected behind it. Users at these hosts or CPE devices can use standard PPP to log on to the cable network and obtain 
+  their IP addresses and other network information. User names and passwords can be included in the OpenCMTS configuration, or the service provider 
+  can use the same Remote Authentication Dial-In User Service (RADIUS) authentication servers as they use for their dial-up and digital subscriber 
+  line (DSL) users. For example, the OpenSubscriber Registration Center (CSRC) provides an Access Registrar that provides RADIUS server authentication.
+  
+The PPPoE Termination feature supports simultaneous use of PPPoE clients and Dynamic Host Configuration Protocol (DHCP) clients behind the same 
+cable modems. Subscribers can use PPPoE for their initial log on to the cable network, and then use DHCP to allow their other PCs and other hosts 
+to obtain IP addresses for network access.
